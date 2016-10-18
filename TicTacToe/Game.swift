@@ -19,6 +19,7 @@ enum GameState {
     case finished(finishedState: FinishedState)
     
     enum FinishedState {
+        
         case win(player: Player)
         case draw
     }
@@ -30,7 +31,7 @@ struct Game {
     private var actualPlayer: Player?
     private var gameState = GameState.progress(state: true)
     private var lastMovement: Movement?
-    var delegate: Gaming!
+    var delegate: Gaming?
     var field: Field
     
     init() { self.field = Field() }
@@ -52,7 +53,7 @@ struct Game {
     mutating func play(position: Int) -> Bool {
         
         guard let player = actualPlayer else {
-            print("players not initialized")
+            print("player not initialized")
             return false
         }
         
@@ -119,6 +120,11 @@ struct Game {
     mutating func setGameState(gameState: GameState) {
         
         self.gameState = gameState
+        
+        guard let delegate = delegate else {
+            print("game delegate did not setted")
+            return
+        }
         
         switch self.gameState {
             
