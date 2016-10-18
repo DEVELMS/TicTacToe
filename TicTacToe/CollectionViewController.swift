@@ -25,7 +25,7 @@ class CollectionViewController: UICollectionViewController, Gaming {
     
     func gameConfigs() {
         
-//        game.delegate = self
+        game.delegate = self
         game.start()
     }
     
