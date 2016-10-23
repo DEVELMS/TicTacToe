@@ -8,16 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
-class CollectionViewController: UICollectionViewController, Gaming {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, Gaming {
     
     var game = Game()
+    var header = CollectionViewHeader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.collectionView!.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
         setCollectionViewLayout()
         gameConfigs()
@@ -31,26 +28,19 @@ class CollectionViewController: UICollectionViewController, Gaming {
     
     func setCollectionViewLayout() {
         
+        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         let screenSize: CGRect = UIScreen.main.bounds
         
         let cellWidth = screenSize.width / 3 - 1
-        let cellHeight = screenSize.height / 3 - 1
+        var cellHeight =  CGFloat()
         
-        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.itemSize = CGSize(width: cellWidth, height: cellHeight)
-    }
-    
-    // MARK: Gaming Protocol
-    func finishedGame(state: GameState.FinishedState) {
-        
-        switch state {
+        if let layout = layout, layout.headerReferenceSize.height > 0 {
             
-        case .win(let winner):
-            showResult(title: "\(winner.name) ganhou a partida!", message: "\(game.getPlayers().first!.name) \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
-            
-        case .draw:
-            showResult(title: "Empate!", message: "\(game.getPlayers().first!.name)!.name): \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
+            cellHeight = (screenSize.height - layout.headerReferenceSize.height) / 3 - 1
         }
+        else { cellHeight = screenSize.height / 3 - 1 }
+        
+        layout?.itemSize = CGSize(width: cellWidth, height: cellHeight)
     }
     
     func showResult(title: String, message: String) {
@@ -63,26 +53,69 @@ class CollectionViewController: UICollectionViewController, Gaming {
             self.game.restart()
             self.collectionView?.reloadData()
         }))
-            
+        
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: Gaming
+    
+    func finishedGame(state: GameState.FinishedState) {
+        
+        switch state {
+            
+        case .win(let winner):
+            showResult(title: "\(winner.name) ganhou a partida!", message: "\(game.getPlayers().first!.name) \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
+            
+        case .draw:
+            showResult(title: "Empate!", message: "\(game.getPlayers().first!.name): \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
+        }
+    }
+    
+    func activePlayer(activePlayer: Player) {
+        
+        header.setTitle(title: "Vez de \(activePlayer.name)")
+    }
+    
+    func turnOff() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: UICollectionViewDataSource
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewHeader.identifier, for: indexPath) as! CollectionViewHeader
+            header.delegate = self
+            
+            if let player = game.getPlayers().first {
+                header.setTitle(title: "Vez de \(player.name)")
+            } else { header.setTitle(title: "Sem jogadores.") }
+            
+            return header
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return game.field.maxPositions
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         
-        cell.item.image = nil
+        cell.setItem()
         
         return cell
     }
     
     // MARK: UICollectionViewDelegate
-
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if game.play(position: indexPath.row) {

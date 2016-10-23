@@ -10,11 +10,18 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var item: UIImageView!
+    @IBOutlet private weak var item: UIImageView!
     
-    func setItem(type: Movement.MovementType) {
+    func setItem(type: Movement.MovementType? = nil) {
+        
+        guard let type = type else {
+            
+            item.image = nil
+            return
+        }
         
         switch type {
+            
         case .o: item.image = #imageLiteral(resourceName: "deathstar")
         case .x: item.image = #imageLiteral(resourceName: "saber")
         }

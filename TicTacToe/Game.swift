@@ -6,13 +6,6 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
-protocol Gaming: AnyObject {
-    
-    var game: Game { get set }
-    
-    func finishedGame(state: GameState.FinishedState)
-}
-
 enum GameState {
     
     case progress(state: Bool)
@@ -31,12 +24,15 @@ struct Game {
     private var actualPlayer: Player?
     private var gameState = GameState.progress(state: true)
     private var lastMovement: Movement?
+    lazy var field: Field = Field()
     var delegate: Gaming?
-    var field: Field
-    
-    init() { self.field = Field() }
     
     mutating func start() {
+        
+        guard delegate != nil else {
+            print("game delegate did not setted to start")
+            return
+        }
         
         players.append(Player(name: "Lightsabers", playerType: Player.PlayerType.playerOne))
         players.append(Player(name: "Death Star", playerType: Player.PlayerType.playerTwo))
@@ -52,6 +48,11 @@ struct Game {
     
     mutating func play(position: Int) -> Bool {
         
+        guard let delegate = delegate else {
+            print("game delegate did not setted to play")
+            return false
+        }
+        
         guard let player = actualPlayer else {
             print("player not initialized")
             return false
@@ -59,14 +60,14 @@ struct Game {
         
         guard field.checkFieldPositions(movement: Movement(player: player, position: position)) else {
             print("movement not allowed")
-            self.setGameState(gameState: .progress(state: false))
+            setGameState(gameState: .progress(state: false))
             return false
         }
         
         lastMovement = Movement(player: player, position: position)
         actualPlayer = getNextPlayer(previousPlayer: player)
-        
-        self.setGameState(gameState: .progress(state: true))
+        delegate.activePlayer(activePlayer: actualPlayer!)
+        setGameState(gameState: .progress(state: true))
         checkVictory(player: lastMovement!.player)
         
         return true
@@ -110,14 +111,14 @@ struct Game {
                  field.checkPositions(position: Position(position: 6, movementType: movementType))
         
         if  l1 || l2 || l3 || c1 || c2 || c3 || d1 || d2 {
-            self.setGameState(gameState: GameState.finished(finishedState: .win(player: player)))
+            setGameState(gameState: GameState.finished(finishedState: .win(player: player)))
         }
         else if field.getPositions().count == field.maxPositions {
-            self.setGameState(gameState: GameState.finished(finishedState: .draw))
+            setGameState(gameState: GameState.finished(finishedState: .draw))
         }
     }
     
-    mutating func setGameState(gameState: GameState) {
+    private mutating func setGameState(gameState: GameState) {
         
         self.gameState = gameState
         
@@ -130,15 +131,8 @@ struct Game {
             
         case GameState.finished(finishedState: .win(let winner)):
             
-            if var player1 = getPlayers().first, winner.playerType == player1.playerType {
-                player1.addWin()
-                players.remove(at: 0)
-                players.insert(player1, at: 0)
-            }
-            else if var player2 = getPlayers().last, winner.playerType == player2.playerType {
-                player2.addWin()
-                players.remove(at: 1)
-                players.insert(player2, at: 1)
+            for (index, player) in players.enumerated() where player.playerType == winner.playerType {
+                victoryToPlayer(at: index)
             }
             delegate.finishedGame(state: .win(player: winner))
             
@@ -149,12 +143,22 @@ struct Game {
         }
     }
     
+    func getLastMovementType() -> Movement.MovementType {
+        
+        return lastMovement!.movementType
+    }
+    
     func getPlayers() -> [Player] {
         
         return players
     }
     
-    func getNextPlayer(previousPlayer: Player) -> Player {
+    private mutating func victoryToPlayer(at: Int) {
+        
+        players[at].addWin()
+    }
+    
+    private func getNextPlayer(previousPlayer: Player) -> Player {
         
         if previousPlayer.playerType == players.first?.playerType {
             return getPlayers().last!
@@ -162,10 +166,5 @@ struct Game {
         else {
             return getPlayers().first!
         }
-    }
-    
-    func getLastMovementType() -> Movement.MovementType {
-        
-        return lastMovement!.movementType
     }
 }
