@@ -77,7 +77,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="fYi-CN-uWf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="zk5-2B-a0G">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="50" height="80"/>
@@ -92,19 +92,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="132" height="158"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pfR-Lv-Tzz"/>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-xz-h3A"/>
                                     </subviews>
                                 </view>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="5k1-xz-h3A" firstAttribute="leading" secondItem="qv8-lF-Z8E" secondAttribute="leading" constant="6" id="IzF-8l-F7Q"/>
-                                    <constraint firstItem="5k1-xz-h3A" firstAttribute="top" secondItem="qv8-lF-Z8E" secondAttribute="top" constant="19" id="LDg-kH-9uX"/>
-                                    <constraint firstItem="pfR-Lv-Tzz" firstAttribute="top" secondItem="qv8-lF-Z8E" secondAttribute="top" id="Tlv-Yu-Hw0"/>
-                                    <constraint firstAttribute="trailing" secondItem="5k1-xz-h3A" secondAttribute="trailing" constant="6" id="Xmz-hG-DHr"/>
-                                    <constraint firstAttribute="bottom" secondItem="pfR-Lv-Tzz" secondAttribute="bottom" id="aVQ-7Z-qzs"/>
-                                    <constraint firstItem="pfR-Lv-Tzz" firstAttribute="leading" secondItem="qv8-lF-Z8E" secondAttribute="leading" id="eed-DN-h8t"/>
-                                    <constraint firstAttribute="bottom" secondItem="5k1-xz-h3A" secondAttribute="bottom" constant="19" id="ns9-ec-eTS"/>
-                                    <constraint firstAttribute="trailing" secondItem="pfR-Lv-Tzz" secondAttribute="trailing" id="puO-0v-cgo"/>
+                                    <constraint firstItem="5k1-xz-h3A" firstAttribute="top" secondItem="qv8-lF-Z8E" secondAttribute="top" constant="19" id="9Ze-tQ-K8s"/>
+                                    <constraint firstAttribute="trailing" secondItem="5k1-xz-h3A" secondAttribute="trailing" constant="6" id="Boo-17-ZUU"/>
+                                    <constraint firstAttribute="bottom" secondItem="5k1-xz-h3A" secondAttribute="bottom" constant="19" id="abE-rD-WqL"/>
+                                    <constraint firstItem="5k1-xz-h3A" firstAttribute="leading" secondItem="qv8-lF-Z8E" secondAttribute="leading" constant="6" id="k8a-5H-Gim"/>
                                 </constraints>
                                 <size key="customSize" width="132" height="158"/>
                                 <connections>
@@ -132,6 +128,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="llI-wN-tK1" firstAttribute="centerX" secondItem="MM8-C9-kxD" secondAttribute="centerX" id="3UK-z4-zkH"/>
                                 <constraint firstItem="2jk-vH-aUy" firstAttribute="leading" secondItem="MM8-C9-kxD" secondAttribute="leading" constant="10" id="aWx-aM-Ncb"/>
@@ -155,7 +152,6 @@
     </scenes>
     <resources>
         <image name="background" width="1080" height="960"/>
-        <image name="cellBackground" width="266" height="266"/>
         <image name="power" width="32" height="32"/>
         <image name="r2d2-c3po" width="32" height="16"/>
         <image name="vader" width="16" height="16"/>

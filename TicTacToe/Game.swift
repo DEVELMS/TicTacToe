@@ -132,7 +132,7 @@ struct Game {
         case GameState.finished(finishedState: .win(let winner)):
             
             for (index, player) in players.enumerated() where player.playerType == winner.playerType {
-                victoryToPlayer(at: index)
+                players[index].addWin()
             }
             delegate.finishedGame(state: .win(player: winner))
             
@@ -151,11 +151,6 @@ struct Game {
     func getPlayers() -> [Player] {
         
         return players
-    }
-    
-    private mutating func victoryToPlayer(at: Int) {
-        
-        players[at].addWin()
     }
     
     private func getNextPlayer(previousPlayer: Player) -> Player {
