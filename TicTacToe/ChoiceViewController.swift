@@ -8,16 +8,20 @@
 
 import UIKit
 
-class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDelegate, Choosing {
 
+    var game = Game()
     lazy var playersModal: PlayersModalViewController = PlayersModalViewController(nibName: PlayersModalViewController.identifier, bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playersModal.delegate = self
     }
 
     @IBAction func chooseCPU(_ sender: UIButton) {
         
+        game.setGameType(gameType: GameType.cpu)
         performSegue(withIdentifier: "sgGame", sender: self)
     }
     
@@ -31,9 +35,16 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
         
         playersModal.modalPresentationStyle = .popover
         playersModal.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width / 2, y: 0, width: 0, height: 0)
-        playersModal.preferredContentSize = CGSize(width: 300, height: 180)
+        playersModal.preferredContentSize = CGSize(width: 300, height: 190)
         playersModal.popoverPresentationController?.delegate = self
         playersModal.popoverPresentationController?.sourceView = sender
+    }
+    
+    //Mark: Choosing
+    
+    func pvpSelected(gameType: GameType) {
+        game.setGameType(gameType: gameType)
+        performSegue(withIdentifier: "sgGame", sender: self)
     }
     
     //Mark: UIPopoverPresentationDelegate
@@ -42,4 +53,15 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
         
         return .none
     }
+    
+    //Mark: UINavigationControllerDelegate
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if segue.identifier == "sgGame" {
+            let collectionViewController = segue.destination as! CollectionViewController
+            collectionViewController.game = game
+        }
+    }
 }
+

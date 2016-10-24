@@ -13,14 +13,24 @@ class PlayersModalViewController: UIViewController {
     @IBOutlet private weak var playerNick2: UITextField!
     @IBOutlet private weak var playerNick1: UITextField!
     
-    @IBAction func cancelar(_ sender: AnyObject) {
-        
-        print("cancelar")
-    }
+    var delegate: Choosing?
     
     @IBAction func jogar(_ sender: AnyObject) {
         
-        print("jogar")
+        guard let delegate = delegate else {
+            print("delegate not setted")
+            return
+        }
+        
+        guard playerNick1.text != "", playerNick2.text != "" else {
+            print("you must type the usernames to continue")
+            return
+        }
+        
+        let players = [ Player(name: playerNick1.text!, playerType: Player.PlayerType.playerOne),
+                        Player(name: playerNick2.text!, playerType: Player.PlayerType.playerTwo) ]
+        
+        delegate.pvpSelected(gameType: GameType.pvp(players: players))
     }
     
 }

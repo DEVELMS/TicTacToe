@@ -14,8 +14,13 @@ class CollectionViewHeader: UICollectionReusableView {
     
     var delegate: Gaming?
     
-    func setTitle(title: String) {
-        self.activePlayer.text = title
+    func setTitle(name: String) {
+        
+        var text = ", \(name)"
+        
+        if name == "Você" { text = "" }
+        
+        self.activePlayer.text = "É a sua vez\(text)"
     }
     
     @IBAction func turnOff(_ sender: AnyObject) {

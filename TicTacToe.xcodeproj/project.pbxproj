@@ -25,6 +25,8 @@
 		C2DC7C941DBBE815000C40C4 /* PlayersModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */; };
 		C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C9B1DBD2AFC000C40C4 /* CollectionViewController.swift */; };
 		C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */; };
+		C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */; };
+		C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersModalViewController.xib; sourceTree = "<group>"; };
 		C2DC7C9B1DBD2AFC000C40C4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
+		C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewFooter.swift; sourceTree = "<group>"; };
+		C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choosing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			children = (
 				C2DC7C7E1DBB1B88000C40C4 /* CollectionViewHeader.swift */,
 				C2245E7C1DB44CA200C676BA /* CollectionViewCell.swift */,
+				C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */,
 				C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */,
 				C2DC7C911DBBE815000C40C4 /* PlayersModalViewController.swift */,
 			);
@@ -138,6 +143,7 @@
 		C2DC7C9D1DBD3DEB000C40C4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */,
 				C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */,
 			);
 			name = Protocols;
@@ -220,10 +226,12 @@
 				C2DC7C8C1DBBCCB8000C40C4 /* ViewControllerExtension.swift in Sources */,
 				C2245E761DB3F1DF00C676BA /* Movement.swift in Sources */,
 				C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */,
+				C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */,
 				C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */,
 				C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */,
 				C2245E7A1DB4045A00C676BA /* Position.swift in Sources */,
 				C2245E7D1DB44CA200C676BA /* CollectionViewCell.swift in Sources */,
+				C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */,
 				C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */,
 				C2245E861DB5B2E100C676BA /* Field.swift in Sources */,
 				C2245E731DB3F1A200C676BA /* Player.swift in Sources */,

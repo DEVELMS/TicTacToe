@@ -6,6 +6,12 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
+enum GameType {
+    
+    case cpu
+    case pvp(players: [Player])
+}
+
 enum GameState {
     
     case progress(state: Bool)
@@ -23,6 +29,7 @@ struct Game {
     private var players = [Player]()
     private var actualPlayer: Player?
     private var gameState = GameState.progress(state: true)
+    private var gameType: GameType?
     private var lastMovement: Movement?
     lazy var field: Field = Field()
     var delegate: Gaming?
@@ -34,8 +41,20 @@ struct Game {
             return
         }
         
-        players.append(Player(name: "Lightsabers", playerType: Player.PlayerType.playerOne))
-        players.append(Player(name: "Death Star", playerType: Player.PlayerType.playerTwo))
+        guard let gameType = gameType else {
+            print("game type not selected")
+            return
+        }
+        
+        switch gameType {
+            
+        case .cpu:
+            players.append(Player(name: "Você", playerType: Player.PlayerType.playerOne))
+            players.append(Player(name: "Death Star", playerType: Player.PlayerType.playerTwo))
+            
+        case .pvp(let players):
+            self.players = players
+        }
         
         actualPlayer = players.first
     }
@@ -116,6 +135,11 @@ struct Game {
         else if field.getPositions().count == field.maxPositions {
             setGameState(gameState: GameState.finished(finishedState: .draw))
         }
+    }
+    
+    mutating func setGameType(gameType: GameType) {
+        
+        self.gameType = gameType
     }
     
     private mutating func setGameState(gameState: GameState) {

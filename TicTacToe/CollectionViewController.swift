@@ -10,8 +10,9 @@ import UIKit
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, Gaming {
     
-    var game = Game()
+    var game: Game!
     var header = CollectionViewHeader()
+    var footer = CollectionViewFooter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +37,14 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         
         if let layout = layout, layout.headerReferenceSize.height > 0 {
             
-            cellHeight = (screenSize.height - layout.headerReferenceSize.height) / 3 - 1
+            cellHeight = (screenSize.height - layout.headerReferenceSize.height - layout.footerReferenceSize.height) / 3 - 1
         }
         else { cellHeight = screenSize.height / 3 - 1 }
         
         layout?.itemSize = CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func showResult(title: String, message: String) {
+    func showResult(title: String, message: String? = "") {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -57,6 +58,13 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         self.present(alert, animated: true, completion: nil)
     }
     
+    func updateVictories() {
+    
+        for player in game.getPlayers() {
+            footer.updateVictories(player: player)
+        }
+    }
+    
     // MARK: Gaming
     
     func finishedGame(state: GameState.FinishedState) {
@@ -64,16 +72,17 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         switch state {
             
         case .win(let winner):
-            showResult(title: "\(winner.name) ganhou a partida!", message: "\(game.getPlayers().first!.name) \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
-            
+            showResult(title: "\(winner.name) é o vencedor!")
+            updateVictories()
         case .draw:
-            showResult(title: "Empate!", message: "\(game.getPlayers().first!.name): \(game.getPlayers().first!.wins) vitorias\n\(game.getPlayers().last!.name): \(game.getPlayers().last!.wins) vitorias")
+            showResult(title: "Empate!")
+            footer.updateDrawns()
         }
     }
     
     func activePlayer(activePlayer: Player) {
         
-        header.setTitle(title: "Vez de \(activePlayer.name)")
+        header.setTitle(name: activePlayer.name)
     }
     
     func turnOff() {
@@ -91,10 +100,18 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             header.delegate = self
             
             if let player = game.getPlayers().first {
-                header.setTitle(title: "Vez de \(player.name)")
-            } else { header.setTitle(title: "Sem jogadores.") }
+                header.setTitle(name: player.name)
+            } else { header.setTitle(name: "Ops!") }
             
             return header
+            
+        case UICollectionElementKindSectionFooter:
+            
+            footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewFooter.identifier, for: indexPath) as! CollectionViewFooter
+            
+            updateVictories()
+            
+            return footer
         default:
             assert(false, "Unexpected element kind")
         }

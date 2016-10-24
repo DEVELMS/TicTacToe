@@ -8,8 +8,6 @@
 
 protocol Gaming: AnyObject {
     
-    var game: Game { get set }
-    
     func finishedGame(state: GameState.FinishedState)
     func activePlayer(activePlayer: Player)
     func turnOff()
