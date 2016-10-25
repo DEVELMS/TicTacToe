@@ -6,8 +6,6 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
-import GameplayKit
-
 enum GameType {
     
     case cpu
@@ -125,7 +123,7 @@ struct Game {
         switch gameType {
         case .cpu:
             
-            if let cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {                delegate.cpuPlayed(movement: randomMovement(cpu: cpu))
+            if var cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {                delegate.cpuPlayed(movement: cpu.randomMovement(field: &field))
             }
             
         case .pvp(_):
@@ -135,66 +133,32 @@ struct Game {
         return true
     }
     
-    private mutating func randomMovement(cpu: Player) -> Movement {
-        
-        var randomPositions = [Int]()
-        
-        for index in (0..<field.maxPositions)  {
-            randomPositions.append(index)
-        }
-        
-        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
-        
-        for position in randomPositions {
-            
-            let movement = Movement(player: cpu, position: position)
-            
-            if field.checkFieldPositionsToCpu(movement: movement) {
-                return movement
-            }
-        }
-        
-        assert(false, "randomMovement(nenhuma posição disponível)")
-    }
-    
     private mutating func checkVictory(player: Player) -> Bool {
         
         let movementType = Movement.MovementType(player: player)
         
         //Linha 1
-        let l1 = field.checkPositions(position: Position(position: 0, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 1, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 2, movementType: movementType))
-        //Linha 2
-        let l2 = field.checkPositions(position: Position(position: 3, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 4, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 5, movementType: movementType))
-        //Linha 3
-        let l3 = field.checkPositions(position: Position(position: 6, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 7, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 8, movementType: movementType))
-        //Coluna 1
-        let c1 = field.checkPositions(position: Position(position: 0, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 3, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 6, movementType: movementType))
-        //Coluna 2
-        let c2 = field.checkPositions(position: Position(position: 1, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 4, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 7, movementType: movementType))
-        //Coluna 3
-        let c3 = field.checkPositions(position: Position(position: 2, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 5, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 8, movementType: movementType))
-        //Diagonal 1
-        let d1 = field.checkPositions(position: Position(position: 0, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 4, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 8, movementType: movementType))
-        //Diagonal 2
-        let d2 = field.checkPositions(position: Position(position: 2, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 4, movementType: movementType)) &&
-                 field.checkPositions(position: Position(position: 6, movementType: movementType))
         
-        if  l1 || l2 || l3 || c1 || c2 || c3 || d1 || d2 {
+        let positionsToWin = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+        
+        var victory = Bool()
+        
+        for positions in positionsToWin {
+            
+            for (index, position) in positions.enumerated() {
+                
+                if(!field.checkPositions(position: Position(position: position, movementType: movementType))) {
+                    break
+                }
+                else if (index == (positions.count - 1)) {
+                
+                    victory = true
+                }
+            }
+            if victory { break }
+        }
+        
+        if victory {
             setGameState(gameState: GameState.finished(finishedState: .win(player: player)))
             return true
         }
@@ -202,6 +166,7 @@ struct Game {
             setGameState(gameState: GameState.finished(finishedState: .draw))
             return true
         }
+        
         return false
     }
     

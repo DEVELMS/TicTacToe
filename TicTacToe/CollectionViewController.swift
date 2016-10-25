@@ -82,6 +82,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     func turnOff() {
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -96,6 +97,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     func setUserInteraction(booleano: Bool) {
+        
         self.collectionView!.isUserInteractionEnabled = booleano
     }
     

@@ -8,21 +8,42 @@
 
 import UIKit
 
-class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDelegate, Choosing {
+class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDelegate, Choosing, Configuring {
 
+    // MARK: Outlets
+    
+    @IBOutlet weak var configButton: UIButton!
+    
+    // MARK: Declarations
+    
     var game = Game()
     lazy var playersModal: PlayersModalViewController = PlayersModalViewController(nibName: PlayersModalViewController.identifier, bundle: nil)
+    lazy var configModal: ConfigModal = ConfigModal(nibName: ConfigModal.identifier, bundle: nil)
+    
+    // MARK: UIViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         playersModal.delegate = self
+        configModal.delegate = self
+        
+        setLayoutAttributes()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
         UIApplication.shared.statusBarStyle = .lightContent
     }
+    
+    // MARK: Methods
+    
+    private func setLayoutAttributes() {
+    
+        configButton.tintColor = UIColor(hexadecimal: 0xF0F0F0)
+    }
+    
+    // MARK: Actions
     
     @IBAction func chooseCPU(_ sender: UIButton) {
         
@@ -32,33 +53,30 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
     
     @IBAction func showPlayersModal(_ sender: UIButton) {
         
-        configPlayersModal(sender);
+        playersModal.configModal(sender);
         self.present(playersModal, animated: true, completion: nil)
     }
     
-    private func configPlayersModal(_ sender: UIButton) {
+    @IBAction func showConfigModal(_ sender: UIButton) {
         
-        playersModal.modalPresentationStyle = .popover
-        playersModal.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width / 2, y: 0, width: 0, height: 0)
-        playersModal.preferredContentSize = CGSize(width: 300, height: 200)
-        playersModal.popoverPresentationController?.delegate = self
-        playersModal.popoverPresentationController?.sourceView = sender
+        configModal.configModal(sender);
+        self.present(configModal, animated: true, completion: nil)
     }
     
-    //Mark: ChoosingDelegate
+    // MARK: ChoosingDelegate
     
     func pvpSelected(gameType: GameType) {
         game.setGameType(gameType: gameType)
         performSegue(withIdentifier: "sgGame", sender: self)
     }
     
-    //Mark: UIPopoverPresentationDelegate
+    // MARK: UIPopoverPresentationDelegate
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
     
-    //Mark: UINavigationControllerDelegate
+    // MARK: UINavigationControllerDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         

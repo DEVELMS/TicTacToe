@@ -22,7 +22,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-W1-720">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOa-0e-NfA">
-                                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="G6J-a3-JTt"/>
                                             <constraint firstAttribute="height" constant="35" id="p0t-4d-WOK"/>
@@ -38,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ign-al-3gv">
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="3hf-mW-46k"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="45b-Jc-OYR"/>
@@ -61,12 +61,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-U7-hUI">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="qfw-vm-RZ9"/>
+                                    <constraint firstAttribute="width" constant="35" id="vxG-mc-Ma1"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="config"/>
+                                <connections>
+                                    <action selector="showConfigModal:" destination="BBe-aS-hOr" eventType="touchUpInside" id="MOU-qm-Gd0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PEj-U7-hUI" secondAttribute="trailing" constant="10" id="LlT-Zp-AmB"/>
                             <constraint firstItem="tg9-W1-720" firstAttribute="centerY" secondItem="EII-gh-PNA" secondAttribute="centerY" constant="10" id="Pk1-DO-PGE"/>
                             <constraint firstAttribute="trailing" secondItem="EII-gh-PNA" secondAttribute="trailing" id="XKb-6k-0nQ"/>
                             <constraint firstItem="2XX-vS-TAv" firstAttribute="centerX" secondItem="EII-gh-PNA" secondAttribute="centerX" id="YiU-Yv-Y3V"/>
+                            <constraint firstItem="PEj-U7-hUI" firstAttribute="top" secondItem="9zx-3a-YQq" secondAttribute="bottom" constant="10" id="Zm0-1K-tmn"/>
                             <constraint firstItem="EII-gh-PNA" firstAttribute="top" secondItem="912-GX-Wc5" secondAttribute="top" id="haX-I5-4Pu"/>
                             <constraint firstItem="hzv-dh-pLZ" firstAttribute="top" secondItem="EII-gh-PNA" secondAttribute="bottom" id="nbl-88-UIf"/>
                             <constraint firstItem="EII-gh-PNA" firstAttribute="leading" secondItem="912-GX-Wc5" secondAttribute="leading" id="ncl-M8-ADd"/>
@@ -75,6 +88,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="configButton" destination="PEj-U7-hUI" id="xhG-mg-cTY"/>
                         <segue destination="qAl-e3-7e3" kind="show" identifier="sgGame" id="7g1-zp-643"/>
                     </connections>
                 </viewController>
@@ -217,6 +231,7 @@
     </scenes>
     <resources>
         <image name="background" width="1080" height="960"/>
+        <image name="config" width="64" height="64"/>
         <image name="power" width="32" height="32"/>
         <image name="r2d2-c3po" width="32" height="16"/>
         <image name="vader" width="16" height="16"/>

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
+import GameplayKit
+
 struct Player {
 
     let name: String
@@ -28,6 +30,28 @@ struct Player {
     mutating func addWin() {
     
         self.wins += 1
+    }
+    
+    mutating func randomMovement(field: inout Field) -> Movement {
+        
+        var randomPositions = [Int]()
+        
+        for index in (0..<field.maxPositions)  {
+            randomPositions.append(index)
+        }
+        
+        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
+        
+        for position in randomPositions {
+            
+            let movement = Movement(player: self, position: position)
+            
+            if field.checkFieldPositionsToCpu(movement: movement) {
+                return movement
+            }
+        }
+        
+        assert(false, "randomMovement(nenhuma posição disponível)")
     }
     
 }

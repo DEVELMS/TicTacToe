@@ -8,14 +8,16 @@
 
 import UIKit
 
-extension UIView {
+protocol Loading { }
+
+extension Loading where Self : UIView {
     
-    static var identifier: String { return String(describing: self) }
-    
-    class func loadFrom(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+    static func loadFrom(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
         return UINib(
             nibName: nibNamed,
             bundle: bundle
         ).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 }
+
+extension UIView: Loading { }

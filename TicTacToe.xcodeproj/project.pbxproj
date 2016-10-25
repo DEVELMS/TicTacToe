@@ -20,14 +20,22 @@
 		C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C7E1DBB1B88000C40C4 /* CollectionViewHeader.swift */; };
 		C2DC7C871DBBB3B6000C40C4 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C861DBBB3B6000C40C4 /* ChoiceViewController.swift */; };
 		C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */; };
-		C2DC7C8C1DBBCCB8000C40C4 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C8B1DBBCCB8000C40C4 /* ViewControllerExtension.swift */; };
+		C2DC7C8C1DBBCCB8000C40C4 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C8B1DBBCCB8000C40C4 /* NSObjectExtension.swift */; };
 		C2DC7C931DBBE815000C40C4 /* PlayersModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C911DBBE815000C40C4 /* PlayersModalViewController.swift */; };
 		C2DC7C941DBBE815000C40C4 /* PlayersModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */; };
 		C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C9B1DBD2AFC000C40C4 /* CollectionViewController.swift */; };
 		C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */; };
 		C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */; };
 		C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */; };
-		C2DC7CA71DBDD0F6000C40C4 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA61DBDD0F6000C40C4 /* DispatchQueueExtension.swift */; };
+		C2DC7CA71DBDD0F6000C40C4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */; };
+		C2DC7CAB1DBFEB16000C40C4 /* lightsaber.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */; };
+		C2DC7CAC1DBFEB16000C40C4 /* blaster.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */; };
+		C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CAE1DBFEB86000C40C4 /* Config.swift */; };
+		C2DC7CB11DBFEBCA000C40C4 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB01DBFEBCA000C40C4 /* Sound.swift */; };
+		C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB21DBFEF6E000C40C4 /* ConfigModal.swift */; };
+		C2DC7CB51DBFEF6E000C40C4 /* ConfigModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CB31DBFEF6E000C40C4 /* ConfigModal.xib */; };
+		C2DC7CB71DBFF683000C40C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */; };
+		C2DC7CB91DBFFA74000C40C4 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,14 +54,22 @@
 		C2DC7C7E1DBB1B88000C40C4 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 		C2DC7C861DBBB3B6000C40C4 /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
-		C2DC7C8B1DBBCCB8000C40C4 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		C2DC7C8B1DBBCCB8000C40C4 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		C2DC7C911DBBE815000C40C4 /* PlayersModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersModalViewController.swift; sourceTree = "<group>"; };
 		C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersModalViewController.xib; sourceTree = "<group>"; };
 		C2DC7C9B1DBD2AFC000C40C4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
 		C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewFooter.swift; sourceTree = "<group>"; };
 		C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choosing.swift; sourceTree = "<group>"; };
-		C2DC7CA61DBDD0F6000C40C4 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lightsaber.wav; sourceTree = "<group>"; };
+		C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blaster.wav; sourceTree = "<group>"; };
+		C2DC7CAE1DBFEB86000C40C4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C2DC7CB01DBFEBCA000C40C4 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		C2DC7CB21DBFEF6E000C40C4 /* ConfigModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigModal.swift; sourceTree = "<group>"; };
+		C2DC7CB31DBFEF6E000C40C4 /* ConfigModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigModal.xib; sourceTree = "<group>"; };
+		C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +102,7 @@
 		C2245E5C1DB2A2D500C676BA /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC7CA81DBFEB0D000C40C4 /* Resources */,
 				C2245E691DB2A2D500C676BA /* Info.plist */,
 				C2245E641DB2A2D500C676BA /* Assets.xcassets */,
 				C2245E661DB2A2D500C676BA /* LaunchScreen.storyboard */,
@@ -94,6 +111,7 @@
 				C2DC7C9D1DBD3DEB000C40C4 /* Protocols */,
 				C2DC7C881DBBB560000C40C4 /* Extensions */,
 				C2245E741DB3F1AF00C676BA /* Models */,
+				C2DC7CAD1DBFEB57000C40C4 /* Singleton */,
 				C2245E7B1DB44C6E00C676BA /* Xibs */,
 				C2245E7E1DB44CAE00C676BA /* Controllers */,
 			);
@@ -108,6 +126,8 @@
 				C2245E721DB3F1A200C676BA /* Player.swift */,
 				C2245E751DB3F1DF00C676BA /* Movement.swift */,
 				C2245E791DB4045A00C676BA /* Position.swift */,
+				C2DC7CB01DBFEBCA000C40C4 /* Sound.swift */,
+				C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -120,6 +140,8 @@
 				C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */,
 				C2DC7C921DBBE815000C40C4 /* PlayersModalViewController.xib */,
 				C2DC7C911DBBE815000C40C4 /* PlayersModalViewController.swift */,
+				C2DC7CB31DBFEF6E000C40C4 /* ConfigModal.xib */,
+				C2DC7CB21DBFEF6E000C40C4 /* ConfigModal.swift */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -137,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */,
-				C2DC7C8B1DBBCCB8000C40C4 /* ViewControllerExtension.swift */,
-				C2DC7CA61DBDD0F6000C40C4 /* DispatchQueueExtension.swift */,
+				C2DC7C8B1DBBCCB8000C40C4 /* NSObjectExtension.swift */,
+				C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -146,10 +168,28 @@
 		C2DC7C9D1DBD3DEB000C40C4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */,
 				C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */,
 				C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		C2DC7CA81DBFEB0D000C40C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */,
+				C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C2DC7CAD1DBFEB57000C40C4 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				C2DC7CAE1DBFEB86000C40C4 /* Config.swift */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DC7CAC1DBFEB16000C40C4 /* blaster.wav in Resources */,
+				C2DC7CB51DBFEF6E000C40C4 /* ConfigModal.xib in Resources */,
 				C2245E681DB2A2D500C676BA /* LaunchScreen.storyboard in Resources */,
 				C2DC7C941DBBE815000C40C4 /* PlayersModalViewController.xib in Resources */,
 				C2245E651DB2A2D500C676BA /* Assets.xcassets in Resources */,
+				C2DC7CAB1DBFEB16000C40C4 /* lightsaber.wav in Resources */,
 				C2245E631DB2A2D500C676BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,18 +269,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DC7C8C1DBBCCB8000C40C4 /* ViewControllerExtension.swift in Sources */,
+				C2DC7C8C1DBBCCB8000C40C4 /* NSObjectExtension.swift in Sources */,
 				C2245E761DB3F1DF00C676BA /* Movement.swift in Sources */,
 				C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */,
+				C2DC7CB71DBFF683000C40C4 /* UIColorExtension.swift in Sources */,
 				C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */,
 				C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */,
-				C2DC7CA71DBDD0F6000C40C4 /* DispatchQueueExtension.swift in Sources */,
+				C2DC7CA71DBDD0F6000C40C4 /* Delay.swift in Sources */,
 				C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */,
 				C2245E7A1DB4045A00C676BA /* Position.swift in Sources */,
 				C2245E7D1DB44CA200C676BA /* CollectionViewCell.swift in Sources */,
 				C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */,
 				C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */,
+				C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */,
+				C2DC7CB91DBFFA74000C40C4 /* Configuring.swift in Sources */,
+				C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */,
 				C2245E861DB5B2E100C676BA /* Field.swift in Sources */,
+				C2DC7CB11DBFEBCA000C40C4 /* Sound.swift in Sources */,
 				C2245E731DB3F1A200C676BA /* Player.swift in Sources */,
 				C2245E5E1DB2A2D500C676BA /* AppDelegate.swift in Sources */,
 				C2245E841DB5A16800C676BA /* Game.swift in Sources */,

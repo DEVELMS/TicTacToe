@@ -6,7 +6,9 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
-protocol Choosing: AnyObject {
+import UIKit
+
+protocol Choosing {
     
     var game: Game { get set }
     

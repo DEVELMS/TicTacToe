@@ -15,6 +15,21 @@ class PlayersModalViewController: UIViewController {
     
     var delegate: Choosing?
     
+    func configModal(_ sender: UIButton) {
+    
+        guard let delegate = delegate else {
+            print("delegate not setted")
+            return
+        }
+        
+        self.modalPresentationStyle = .popover
+        self.popoverPresentationController?.backgroundColor = UIColor(hexadecimal: 0xF0F0F0)
+        self.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width / 2, y: 0, width: 0, height: 0)
+        self.preferredContentSize = CGSize(width: 300, height: 200)
+        self.popoverPresentationController?.delegate = delegate as? UIPopoverPresentationControllerDelegate
+        self.popoverPresentationController?.sourceView = sender
+    }
+    
     @IBAction func jogar(_ sender: AnyObject) {
         
         guard let delegate = delegate else {
