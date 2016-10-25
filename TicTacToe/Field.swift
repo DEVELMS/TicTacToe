@@ -24,11 +24,21 @@ struct Field {
     mutating func checkFieldPositions(movement: Movement) -> Bool {
         
         guard checkPositionEmpty(position: movement.position) else {
-            
+            print("position not empty")
             return false
         }
         
         markFieldPosition(movement: movement)
+        
+        return true
+    }
+    
+    mutating func checkFieldPositionsToCpu(movement: Movement) -> Bool {
+        
+        guard checkPositionEmpty(position: movement.position) else {
+            print("position not empty")
+            return false
+        }
         
         return true
     }

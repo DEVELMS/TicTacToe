@@ -10,5 +10,7 @@ protocol Gaming: AnyObject {
     
     func finishedGame(state: GameState.FinishedState)
     func activePlayer(activePlayer: Player)
+    func cpuPlayed(movement: Movement)
+    func setUserInteraction(booleano: Bool)
     func turnOff()
 }

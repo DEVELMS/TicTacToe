@@ -16,11 +16,11 @@ class CollectionViewHeader: UICollectionReusableView {
     
     func setTitle(name: String) {
         
-        var text = ", \(name)"
+        var text = "É a vez de \(name)."
         
-        if name == "Você" { text = "" }
+        if name == "Você" { text = "É a sua vez." }
         
-        self.activePlayer.text = "É a sua vez\(text)"
+        self.activePlayer.text = text
     }
     
     @IBAction func turnOff(_ sender: AnyObject) {

@@ -89,6 +89,20 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         self.dismiss(animated: true, completion: nil)
     }
     
+    func cpuPlayed(movement: Movement) {
+        
+        let indexPath = IndexPath(row: movement.position.position, section: 0)
+        
+        if game.play(movement: movement) {
+            let cell = self.collectionView!.cellForItem(at: indexPath) as! CollectionViewCell
+            cell.setItem(type: movement.movementType)
+        } else { print("cpu cannot play") }
+    }
+    
+    func setUserInteraction(booleano: Bool) {
+        self.collectionView!.isUserInteractionEnabled = booleano
+    }
+    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -136,7 +150,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if game.play(position: indexPath.row) {
-            
             let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
             cell.setItem(type: game.getLastMovementType())
         }

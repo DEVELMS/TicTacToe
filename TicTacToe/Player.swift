@@ -10,7 +10,7 @@ struct Player {
 
     let name: String
     let playerType: PlayerType
-    var movements = [Movement]()
+    let human: Bool
     var wins = Int()
     
     enum PlayerType {
@@ -18,15 +18,11 @@ struct Player {
         case playerTwo
     }
     
-    init(name: String, playerType: PlayerType) {
+    init(name: String, playerType: PlayerType, human: Bool) {
         
         self.name = name
         self.playerType = playerType
-    }
-    
-    mutating func setMovements(position: Int) {
-        
-        self.movements.append(Movement(player: self, position: position))
+        self.human = human
     }
     
     mutating func addWin() {

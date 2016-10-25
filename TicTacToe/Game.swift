@@ -6,6 +6,8 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
+import GameplayKit
+
 enum GameType {
     
     case cpu
@@ -14,7 +16,7 @@ enum GameType {
 
 enum GameState {
     
-    case progress(state: Bool)
+    case progress
     case finished(finishedState: FinishedState)
     
     enum FinishedState {
@@ -28,10 +30,10 @@ struct Game {
 
     private var players = [Player]()
     private var actualPlayer: Player?
-    private var gameState = GameState.progress(state: true)
+    private var gameState = GameState.progress
     private var gameType: GameType?
     private var lastMovement: Movement?
-    lazy var field: Field = Field()
+    var field: Field = Field()
     var delegate: Gaming?
     
     mutating func start() {
@@ -49,8 +51,8 @@ struct Game {
         switch gameType {
             
         case .cpu:
-            players.append(Player(name: "Você", playerType: Player.PlayerType.playerOne))
-            players.append(Player(name: "Death Star", playerType: Player.PlayerType.playerTwo))
+            players.append(Player(name: "Você", playerType: Player.PlayerType.playerOne, human: true))
+            players.append(Player(name: "Death Star", playerType: Player.PlayerType.playerTwo, human: false))
             
         case .pvp(let players):
             self.players = players
@@ -61,11 +63,23 @@ struct Game {
     
     mutating func restart() {
         
-        gameState = GameState.progress(state: true)
+        guard let gameType = gameType else {
+            print("game type not selected")
+            return
+        }
+        
+        gameState = GameState.progress
         field.cleanPositions()
+        
+        switch gameType {
+        case .cpu:
+            actualPlayer = players.first
+        default:
+            break
+        }
     }
     
-    mutating func play(position: Int) -> Bool {
+    mutating func play(position: Int? = nil, movement: Movement? = nil) -> Bool {
         
         guard let delegate = delegate else {
             print("game delegate did not setted to play")
@@ -77,22 +91,73 @@ struct Game {
             return false
         }
         
-        guard field.checkFieldPositions(movement: Movement(player: player, position: position)) else {
-            print("movement not allowed")
-            setGameState(gameState: .progress(state: false))
+        guard let gameType = gameType else {
+            print("game type not selected")
             return false
         }
         
-        lastMovement = Movement(player: player, position: position)
+        if let position = position {
+        
+            guard field.checkFieldPositions(movement: Movement(player: player, position: position)) else {
+                return false
+            }
+            
+            lastMovement = Movement(player: player, position: position)
+            
+            guard !checkVictory(player: lastMovement!.player) else {
+                return true
+            }
+        }
+        else if let movement = movement {
+            
+            guard field.checkFieldPositions(movement: movement) else {
+                print("cpu movement invalid")
+                return false
+            }
+            
+            guard !checkVictory(player: movement.player) else {
+                return true
+            }
+        }
+        
         actualPlayer = getNextPlayer(previousPlayer: player)
-        delegate.activePlayer(activePlayer: actualPlayer!)
-        setGameState(gameState: .progress(state: true))
-        checkVictory(player: lastMovement!.player)
+        
+        switch gameType {
+        case .cpu:
+            
+            if let cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {                delegate.cpuPlayed(movement: randomMovement(cpu: cpu))
+            }
+            
+        case .pvp(_):
+            delegate.activePlayer(activePlayer: actualPlayer!)
+        }
         
         return true
     }
     
-    private mutating func checkVictory(player: Player) {
+    private mutating func randomMovement(cpu: Player) -> Movement {
+        
+        var randomPositions = [Int]()
+        
+        for index in (0..<field.maxPositions)  {
+            randomPositions.append(index)
+        }
+        
+        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
+        
+        for position in randomPositions {
+            
+            let movement = Movement(player: cpu, position: position)
+            
+            if field.checkFieldPositionsToCpu(movement: movement) {
+                return movement
+            }
+        }
+        
+        assert(false, "randomMovement(nenhuma posição disponível)")
+    }
+    
+    private mutating func checkVictory(player: Player) -> Bool {
         
         let movementType = Movement.MovementType(player: player)
         
@@ -131,10 +196,13 @@ struct Game {
         
         if  l1 || l2 || l3 || c1 || c2 || c3 || d1 || d2 {
             setGameState(gameState: GameState.finished(finishedState: .win(player: player)))
+            return true
         }
         else if field.getPositions().count == field.maxPositions {
             setGameState(gameState: GameState.finished(finishedState: .draw))
+            return true
         }
+        return false
     }
     
     mutating func setGameType(gameType: GameType) {
@@ -179,11 +247,11 @@ struct Game {
     
     private func getNextPlayer(previousPlayer: Player) -> Player {
         
-        if previousPlayer.playerType == players.first?.playerType {
-            return getPlayers().last!
+        for player in players {
+            if player.playerType != previousPlayer.playerType {
+                return player
+            }
         }
-        else {
-            return getPlayers().first!
-        }
+        assert(false, "getNextPlayer(nenhum player disponível)")
     }
 }
