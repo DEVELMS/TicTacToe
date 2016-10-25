@@ -15,29 +15,9 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="190"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SED-Qw-81G">
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZh-V4-6GL">
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFA-F0-4da">
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdP-Bq-58e">
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-Yd-et3">
                     <state key="normal" image="controller">
                         <color key="titleColor" red="0.24608402739999999" green="0.73970646380000005" blue="0.21862465149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,13 +26,33 @@
                         <action selector="jogar:" destination="-2" eventType="touchUpInside" id="WRW-eW-YEk"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SED-Qw-81G">
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZh-V4-6GL">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdP-Bq-58e">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jogador 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFA-F0-4da">
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="zlv-Yd-et3" secondAttribute="bottom" constant="7" id="1LS-4H-W1N"/>
-                <constraint firstItem="SED-Qw-81G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="2Ab-hJ-TtH"/>
+                <constraint firstAttribute="bottom" secondItem="zlv-Yd-et3" secondAttribute="bottom" constant="15" id="1LS-4H-W1N"/>
+                <constraint firstItem="SED-Qw-81G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="2Ab-hJ-TtH"/>
                 <constraint firstItem="zlv-Yd-et3" firstAttribute="centerX" secondItem="LdP-Bq-58e" secondAttribute="centerX" id="53e-M5-T0w"/>
-                <constraint firstItem="SED-Qw-81G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Cl-Is-Fg3"/>
+                <constraint firstItem="SED-Qw-81G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-99" id="9Cl-Is-Fg3"/>
                 <constraint firstItem="LdP-Bq-58e" firstAttribute="top" secondItem="GFA-F0-4da" secondAttribute="bottom" constant="5" id="GKN-GX-gu1"/>
                 <constraint firstItem="GFA-F0-4da" firstAttribute="trailing" secondItem="SED-Qw-81G" secondAttribute="trailing" id="HuB-hh-ONS"/>
                 <constraint firstItem="oZh-V4-6GL" firstAttribute="top" secondItem="SED-Qw-81G" secondAttribute="bottom" constant="5" id="JJe-DN-BF9"/>
@@ -61,7 +61,7 @@
                 <constraint firstItem="oZh-V4-6GL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="OHq-7R-D8T"/>
                 <constraint firstItem="LdP-Bq-58e" firstAttribute="trailing" secondItem="oZh-V4-6GL" secondAttribute="trailing" id="f0g-ee-8hu"/>
                 <constraint firstItem="LdP-Bq-58e" firstAttribute="leading" secondItem="oZh-V4-6GL" secondAttribute="leading" id="hnO-XK-2ge"/>
-                <constraint firstItem="GFA-F0-4da" firstAttribute="top" secondItem="oZh-V4-6GL" secondAttribute="bottom" constant="10" id="znB-HI-YwO"/>
+                <constraint firstItem="GFA-F0-4da" firstAttribute="top" secondItem="oZh-V4-6GL" secondAttribute="bottom" constant="8" id="znB-HI-YwO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

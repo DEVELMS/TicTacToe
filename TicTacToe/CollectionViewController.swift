@@ -21,6 +21,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         gameConfigs()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     func gameConfigs() {
         
         game.delegate = self
@@ -48,21 +53,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "Começar outra partida", style: .destructive, handler: {
-            action in
-            
+        alert.addAction(UIAlertAction(title: "Começar outra partida", style: .destructive) { _ in
             self.game.restart()
             self.collectionView?.reloadData()
-        }))
+        })
         
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    func updateVictories() {
-    
-        for player in game.getPlayers() {
-            footer.updateVictories(player: player)
-        }
     }
     
     // MARK: Gaming
@@ -73,7 +69,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             
         case .win(let winner):
             showResult(title: "\(winner.name) é o vencedor!")
-            updateVictories()
+            footer.updateVictories(player: winner)
         case .draw:
             showResult(title: "Empate!")
             footer.updateDrawns()
@@ -123,7 +119,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             
             footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionViewFooter.identifier, for: indexPath) as! CollectionViewFooter
             
-            updateVictories()
+            for player in game.getPlayers() { footer.updateVictories(player: player) }
             
             return footer
         default:

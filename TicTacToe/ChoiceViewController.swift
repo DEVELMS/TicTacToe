@@ -19,6 +19,11 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
         playersModal.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     @IBAction func chooseCPU(_ sender: UIButton) {
         
         game.setGameType(gameType: GameType.cpu)
@@ -35,12 +40,12 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
         
         playersModal.modalPresentationStyle = .popover
         playersModal.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width / 2, y: 0, width: 0, height: 0)
-        playersModal.preferredContentSize = CGSize(width: 300, height: 190)
+        playersModal.preferredContentSize = CGSize(width: 300, height: 200)
         playersModal.popoverPresentationController?.delegate = self
         playersModal.popoverPresentationController?.sourceView = sender
     }
     
-    //Mark: Choosing
+    //Mark: ChoosingDelegate
     
     func pvpSelected(gameType: GameType) {
         game.setGameType(gameType: gameType)
@@ -50,7 +55,6 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
     //Mark: UIPopoverPresentationDelegate
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        
         return .none
     }
     
