@@ -12,7 +12,7 @@ class ConfigModal: UIViewController {
 
     var delegate: Configuring?
     
-    func configModal(_ sender: UIView) {
+    func configModal(_ sender: UIButton) {
         
         guard let delegate = delegate else {
             print("delegate not setted")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, Gaming, Configuring {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIPopoverPresentationControllerDelegate, Gaming, Configuring {
     
     var game: Game!
     var header = CollectionViewHeader()
@@ -172,5 +172,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             cell.setItem(type: game.getLastMovementType())
             Config.sharedInstance.sound.playMovementSound(movementType: game.getLastMovementType())
         }
+    }
+    
+    // MARK: UIPopoverPresentationDelegate
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
