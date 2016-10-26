@@ -36,7 +36,6 @@ struct Field {
     mutating func checkFieldPositionsToCpu(movement: Movement) -> Bool {
         
         guard checkPositionEmpty(position: movement.position) else {
-            print("position not empty")
             return false
         }
         

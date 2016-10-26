@@ -17,6 +17,10 @@
 		C2245E7D1DB44CA200C676BA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E7C1DB44CA200C676BA /* CollectionViewCell.swift */; };
 		C2245E841DB5A16800C676BA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E831DB5A16800C676BA /* Game.swift */; };
 		C2245E861DB5B2E100C676BA /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E851DB5B2E100C676BA /* Field.swift */; };
+		C2BFE9361DC02DEC0088089C /* imperial-march.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2BFE9341DC02DEC0088089C /* imperial-march.wav */; };
+		C2BFE9371DC02DEC0088089C /* theme-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2BFE9351DC02DEC0088089C /* theme-song.mp3 */; };
+		C2BFE9391DC0563D0088089C /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2BFE9381DC0563D0088089C /* win.wav */; };
+		C2BFE93B1DC070F90088089C /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFE93A1DC070F90088089C /* Configuring.swift */; };
 		C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C7E1DBB1B88000C40C4 /* CollectionViewHeader.swift */; };
 		C2DC7C871DBBB3B6000C40C4 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C861DBBB3B6000C40C4 /* ChoiceViewController.swift */; };
 		C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */; };
@@ -35,7 +39,6 @@
 		C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB21DBFEF6E000C40C4 /* ConfigModal.swift */; };
 		C2DC7CB51DBFEF6E000C40C4 /* ConfigModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CB31DBFEF6E000C40C4 /* ConfigModal.xib */; };
 		C2DC7CB71DBFF683000C40C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */; };
-		C2DC7CB91DBFFA74000C40C4 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,10 @@
 		C2245E7C1DB44CA200C676BA /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C2245E831DB5A16800C676BA /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C2245E851DB5B2E100C676BA /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		C2BFE9341DC02DEC0088089C /* imperial-march.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "imperial-march.wav"; sourceTree = "<group>"; };
+		C2BFE9351DC02DEC0088089C /* theme-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "theme-song.mp3"; sourceTree = "<group>"; };
+		C2BFE9381DC0563D0088089C /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		C2BFE93A1DC070F90088089C /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		C2DC7C7E1DBB1B88000C40C4 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 		C2DC7C861DBBB3B6000C40C4 /* ChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -69,7 +76,6 @@
 		C2DC7CB21DBFEF6E000C40C4 /* ConfigModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigModal.swift; sourceTree = "<group>"; };
 		C2DC7CB31DBFEF6E000C40C4 /* ConfigModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigModal.xib; sourceTree = "<group>"; };
 		C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +133,6 @@
 				C2245E751DB3F1DF00C676BA /* Movement.swift */,
 				C2245E791DB4045A00C676BA /* Position.swift */,
 				C2DC7CB01DBFEBCA000C40C4 /* Sound.swift */,
-				C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 		C2DC7C881DBBB560000C40C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */,
 				C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */,
 				C2DC7C8B1DBBCCB8000C40C4 /* NSObjectExtension.swift */,
 				C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */,
@@ -168,9 +174,9 @@
 		C2DC7C9D1DBD3DEB000C40C4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				C2DC7CB81DBFFA74000C40C4 /* Configuring.swift */,
 				C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */,
 				C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */,
+				C2BFE93A1DC070F90088089C /* Configuring.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -178,8 +184,11 @@
 		C2DC7CA81DBFEB0D000C40C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2BFE9341DC02DEC0088089C /* imperial-march.wav */,
+				C2BFE9351DC02DEC0088089C /* theme-song.mp3 */,
 				C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */,
 				C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */,
+				C2BFE9381DC0563D0088089C /* win.wav */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -252,7 +261,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BFE9371DC02DEC0088089C /* theme-song.mp3 in Resources */,
 				C2DC7CAC1DBFEB16000C40C4 /* blaster.wav in Resources */,
+				C2BFE9361DC02DEC0088089C /* imperial-march.wav in Resources */,
+				C2BFE9391DC0563D0088089C /* win.wav in Resources */,
 				C2DC7CB51DBFEF6E000C40C4 /* ConfigModal.xib in Resources */,
 				C2245E681DB2A2D500C676BA /* LaunchScreen.storyboard in Resources */,
 				C2DC7C941DBBE815000C40C4 /* PlayersModalViewController.xib in Resources */,
@@ -282,7 +294,7 @@
 				C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */,
 				C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */,
 				C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */,
-				C2DC7CB91DBFFA74000C40C4 /* Configuring.swift in Sources */,
+				C2BFE93B1DC070F90088089C /* Configuring.swift in Sources */,
 				C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */,
 				C2245E861DB5B2E100C676BA /* Field.swift in Sources */,
 				C2DC7CB11DBFEBCA000C40C4 /* Sound.swift in Sources */,

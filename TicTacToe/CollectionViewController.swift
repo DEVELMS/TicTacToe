@@ -8,14 +8,17 @@
 
 import UIKit
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, Gaming {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, Gaming, Configuring {
     
     var game: Game!
     var header = CollectionViewHeader()
     var footer = CollectionViewFooter()
+    lazy var configModal: ConfigModal = ConfigModal(nibName: ConfigModal.identifier, bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configModal.delegate = self
         
         setCollectionViewLayout()
         gameConfigs()
@@ -26,13 +29,15 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         UIApplication.shared.statusBarStyle = .default
     }
     
-    func gameConfigs() {
+    // MARK: Methods
+    
+    private func gameConfigs() {
         
         game.delegate = self
         game.start()
     }
     
-    func setCollectionViewLayout() {
+    private func setCollectionViewLayout() {
         
         let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         let screenSize: CGRect = UIScreen.main.bounds
@@ -49,7 +54,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         layout?.itemSize = CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func showResult(title: String, message: String? = "") {
+    private func showResult(title: String, message: String? = "") {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -63,16 +68,25 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     // MARK: Gaming
     
-    func finishedGame(state: GameState.FinishedState) {
+    func finishedGame(state: Game.GameState.FinishedState) {
         
         switch state {
             
         case .win(let winner):
             showResult(title: "\(winner.name) é o vencedor!")
             footer.updateVictories(player: winner)
+            
+            Delay.wait(seconds: 0.5) {
+                Config.sharedInstance.sound.playGameStateSound(gameState: state)
+            }
+            
         case .draw:
             showResult(title: "Empate!")
             footer.updateDrawns()
+            
+            Delay.wait(seconds: 0.5) {
+                Config.sharedInstance.sound.playGameStateSound(gameState: state)
+            }
         }
     }
     
@@ -99,6 +113,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     func setUserInteraction(booleano: Bool) {
         
         self.collectionView!.isUserInteractionEnabled = booleano
+    }
+    
+    func showConfigModal(sender: UIButton) {
+        
+        configModal.configModal(sender);
+        self.present(configModal, animated: true, completion: nil)
     }
     
     // MARK: UICollectionViewDataSource
@@ -150,6 +170,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         if game.play(position: indexPath.row) {
             let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
             cell.setItem(type: game.getLastMovementType())
+            Config.sharedInstance.sound.playMovementSound(movementType: game.getLastMovementType())
         }
     }
 }

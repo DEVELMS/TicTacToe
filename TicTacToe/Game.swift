@@ -6,24 +6,6 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
-enum GameType {
-    
-    case cpu
-    case pvp(players: [Player])
-}
-
-enum GameState {
-    
-    case progress
-    case finished(finishedState: FinishedState)
-    
-    enum FinishedState {
-        
-        case win(player: Player)
-        case draw
-    }
-}
-
 struct Game {
 
     private var players = [Player]()
@@ -33,6 +15,24 @@ struct Game {
     private var lastMovement: Movement?
     var field: Field = Field()
     var delegate: Gaming?
+    
+    enum GameType {
+        
+        case cpu
+        case pvp(players: [Player])
+    }
+    
+    enum GameState {
+        
+        case progress
+        case finished(finishedState: FinishedState)
+        
+        enum FinishedState {
+            
+            case win(player: Player)
+            case draw
+        }
+    }
     
     mutating func start() {
         
@@ -123,7 +123,14 @@ struct Game {
         switch gameType {
         case .cpu:
             
-            if var cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {                delegate.cpuPlayed(movement: cpu.randomMovement(field: &field))
+            if var cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {
+                delegate.setUserInteraction(booleano: false)
+                var weak = self
+                Delay.wait(seconds: 0.5) {
+                    delegate.cpuPlayed(movement: cpu.randomMovement(field: &weak.field))
+                    delegate.setUserInteraction(booleano: true)
+                }
+                self = weak
             }
             
         case .pvp(_):

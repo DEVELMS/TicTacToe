@@ -44,7 +44,7 @@ class PlayersModalViewController: UIViewController {
         
         let players = [ Player(name: playerNick1.text!, playerType: Player.PlayerType.playerOne, human: true), Player(name: playerNick2.text!, playerType: Player.PlayerType.playerTwo, human: true) ]
         
-        delegate.pvpSelected(gameType: GameType.pvp(players: players))
+        delegate.pvpSelected(gameType: Game.GameType.pvp(players: players))
     }
     
 }

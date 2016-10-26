@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,7 +101,7 @@
         <scene sceneID="AF6-HM-JUi">
             <objects>
                 <collectionViewController id="qAl-e3-7e3" customClass="CollectionViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="fYi-CN-uWf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fYi-CN-uWf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,11 +139,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llI-wN-tK1">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-vH-aUy">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="34" id="cT5-Rr-cpI"/>
@@ -153,16 +149,34 @@
                                         <action selector="turnOff:" destination="MM8-C9-kxD" eventType="touchUpInside" id="nEI-Wv-OGj"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llI-wN-tK1">
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9K-Rs-Uty">
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="config"/>
+                                    <connections>
+                                        <action selector="showConfigModal:" destination="MM8-C9-kxD" eventType="touchUpInside" id="fQh-lD-y5a"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="llI-wN-tK1" firstAttribute="centerX" secondItem="MM8-C9-kxD" secondAttribute="centerX" id="3UK-z4-zkH"/>
+                                <constraint firstItem="h9K-Rs-Uty" firstAttribute="width" secondItem="2jk-vH-aUy" secondAttribute="width" id="Rtk-18-nd3"/>
+                                <constraint firstItem="h9K-Rs-Uty" firstAttribute="top" secondItem="2jk-vH-aUy" secondAttribute="top" id="VsX-av-nrP"/>
+                                <constraint firstItem="h9K-Rs-Uty" firstAttribute="trailing" secondItem="MM8-C9-kxD" secondAttribute="trailingMargin" id="X9T-dh-e8F"/>
+                                <constraint firstItem="h9K-Rs-Uty" firstAttribute="centerY" secondItem="2jk-vH-aUy" secondAttribute="centerY" id="ZFY-8c-c9u"/>
                                 <constraint firstItem="2jk-vH-aUy" firstAttribute="leading" secondItem="MM8-C9-kxD" secondAttribute="leading" constant="10" id="aWx-aM-Ncb"/>
                                 <constraint firstItem="llI-wN-tK1" firstAttribute="centerY" secondItem="2jk-vH-aUy" secondAttribute="centerY" id="jMa-QQ-6qU"/>
                                 <constraint firstItem="2jk-vH-aUy" firstAttribute="top" secondItem="MM8-C9-kxD" secondAttribute="top" constant="28" id="ndh-Fl-uT3"/>
+                                <constraint firstItem="h9K-Rs-Uty" firstAttribute="height" secondItem="2jk-vH-aUy" secondAttribute="height" id="wEg-RP-JMy"/>
                             </constraints>
                             <connections>
                                 <outlet property="activePlayer" destination="llI-wN-tK1" id="4z8-oX-9dO"/>
+                                <outlet property="configButton" destination="h9K-Rs-Uty" id="H1i-2q-SBQ"/>
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewFooter" id="uQG-Sr-ZFb" customClass="CollectionViewFooter" customModule="TicTacToe" customModuleProvider="target">

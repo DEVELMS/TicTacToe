@@ -6,11 +6,14 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
+import UIKit
+
 protocol Gaming {
     
-    func finishedGame(state: GameState.FinishedState)
+    func finishedGame(state: Game.GameState.FinishedState)
     func activePlayer(activePlayer: Player)
     func cpuPlayed(movement: Movement)
     func setUserInteraction(booleano: Bool)
     func turnOff()
+    func showConfigModal(sender: UIButton)
 }

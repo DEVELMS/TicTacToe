@@ -12,7 +12,7 @@ class ConfigModal: UIViewController {
 
     var delegate: Configuring?
     
-    func configModal(_ sender: UIButton) {
+    func configModal(_ sender: UIView) {
         
         guard let delegate = delegate else {
             print("delegate not setted")
@@ -20,17 +20,22 @@ class ConfigModal: UIViewController {
         }
         
         self.modalPresentationStyle = .popover
-        self.popoverPresentationController?.permittedArrowDirections = .right
+        self.popoverPresentationController?.permittedArrowDirections = .up
         self.popoverPresentationController?.backgroundColor = UIColor(hexadecimal: 0xF0F0F0)
-        self.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.origin.x, y: sender.bounds.height, width: 0, height: 0)
-        self.preferredContentSize = CGSize(width: 80, height: 80)
+        self.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width, y: sender.bounds.height, width: 0, height: 0)
+        self.preferredContentSize = CGSize(width: 60, height: 60)
         self.popoverPresentationController?.delegate = delegate as? UIPopoverPresentationControllerDelegate
         self.popoverPresentationController?.sourceView = sender
     }
     
-    @IBAction func changeSoundState(_ sender: AnyObject) {
+    @IBAction func changeSoundState(_ sender: UIButton) {
         
-        print("cange sound state")
+        switch Config.sharedInstance.sound.getState() {
+        case .on: Config.sharedInstance.sound.setState(state: .off)
+        case .off: Config.sharedInstance.sound.setState(state: .on)
+        }
+        
+        sender.setImage(Config.sharedInstance.sound.getState().image, for: .normal)
     }
 
 }

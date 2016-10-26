@@ -18,8 +18,8 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mt-w0-5GG">
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="ofF-vj-W5p"/>
-                        <constraint firstAttribute="width" constant="35" id="u9L-1x-OUm"/>
+                        <constraint firstAttribute="height" constant="30" id="ofF-vj-W5p"/>
+                        <constraint firstAttribute="width" constant="30" id="u9L-1x-OUm"/>
                     </constraints>
                     <state key="normal" image="soundOn"/>
                     <connections>

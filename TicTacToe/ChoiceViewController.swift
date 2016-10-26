@@ -29,6 +29,7 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
         configModal.delegate = self
         
         setLayoutAttributes()
+        Config.sharedInstance.sound.startSoundtrack()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +48,7 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
     
     @IBAction func chooseCPU(_ sender: UIButton) {
         
-        game.setGameType(gameType: GameType.cpu)
+        game.setGameType(gameType: Game.GameType.cpu)
         performSegue(withIdentifier: "sgGame", sender: self)
     }
     
@@ -65,7 +66,7 @@ class ChoiceViewController: UIViewController, UIPopoverPresentationControllerDel
     
     // MARK: ChoosingDelegate
     
-    func pvpSelected(gameType: GameType) {
+    func pvpSelected(gameType: Game.GameType) {
         game.setGameType(gameType: gameType)
         performSegue(withIdentifier: "sgGame", sender: self)
     }

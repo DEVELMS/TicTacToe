@@ -12,5 +12,5 @@ protocol Choosing {
     
     var game: Game { get set }
     
-    func pvpSelected(gameType: GameType)
+    func pvpSelected(gameType: Game.GameType)
 }

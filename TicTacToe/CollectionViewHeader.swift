@@ -11,10 +11,28 @@ import UIKit
 class CollectionViewHeader: UICollectionReusableView {
         
     @IBOutlet private weak var activePlayer: UILabel!
+    @IBOutlet weak var configButton: UIButton!
     
     var delegate: Gaming?
     
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//        Delay.wait(seconds: 0.5) { self.setLayoutAttributes() }
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
+    private func setLayoutAttributes() {
+        
+        configButton.tintColor = UIColor.darkGray
+    }
+    
     func setTitle(name: String) {
+        
+        self.setLayoutAttributes()
         
         var text = "É a vez de \(name)."
         
@@ -23,12 +41,21 @@ class CollectionViewHeader: UICollectionReusableView {
         self.activePlayer.text = text
     }
     
-    @IBAction func turnOff(_ sender: AnyObject) {
+    @IBAction func turnOff(_ sender: UIButton) {
         
         guard let delegate = delegate else {
             print("delegate not setted")
             return
         }
         delegate.turnOff()
+    }
+    
+    @IBAction func showConfigModal(_ sender: UIButton) {
+        
+        guard let delegate = delegate else {
+            print("delegate not setted")
+            return
+        }
+        delegate.showConfigModal(sender: sender)
     }
 }
