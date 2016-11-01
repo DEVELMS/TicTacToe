@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005DCEEB1DC9102700E3FCC4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCEEA1DC9102700E3FCC4 /* Delay.swift */; };
 		C2245E5E1DB2A2D500C676BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */; };
 		C2245E631DB2A2D500C676BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2245E611DB2A2D500C676BA /* Main.storyboard */; };
 		C2245E651DB2A2D500C676BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2245E641DB2A2D500C676BA /* Assets.xcassets */; };
@@ -31,7 +32,6 @@
 		C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */; };
 		C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */; };
 		C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */; };
-		C2DC7CA71DBDD0F6000C40C4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */; };
 		C2DC7CAB1DBFEB16000C40C4 /* lightsaber.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */; };
 		C2DC7CAC1DBFEB16000C40C4 /* blaster.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */; };
 		C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC7CAE1DBFEB86000C40C4 /* Config.swift */; };
@@ -42,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005DCEEA1DC9102700E3FCC4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		C2245E5A1DB2A2D500C676BA /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2245E621DB2A2D500C676BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
 		C2DC7CA01DBD5D04000C40C4 /* CollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewFooter.swift; sourceTree = "<group>"; };
 		C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choosing.swift; sourceTree = "<group>"; };
-		C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lightsaber.wav; sourceTree = "<group>"; };
 		C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blaster.wav; sourceTree = "<group>"; };
 		C2DC7CAE1DBFEB86000C40C4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -89,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		005DCEE91DC9101300E3FCC4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				005DCEEA1DC9102700E3FCC4 /* Delay.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		C2245E511DB2A2D400C676BA = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +128,7 @@
 				C2DC7CAD1DBFEB57000C40C4 /* Singleton */,
 				C2245E7B1DB44C6E00C676BA /* Xibs */,
 				C2245E7E1DB44CAE00C676BA /* Controllers */,
+				005DCEE91DC9101300E3FCC4 /* Helpers */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -163,7 +172,6 @@
 		C2DC7C881DBBB560000C40C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C2DC7CA61DBDD0F6000C40C4 /* Delay.swift */,
 				C2DC7C891DBBB57C000C40C4 /* ViewExtension.swift */,
 				C2DC7C8B1DBBCCB8000C40C4 /* NSObjectExtension.swift */,
 				C2DC7CB61DBFF683000C40C4 /* UIColorExtension.swift */,
@@ -287,12 +295,12 @@
 				C2DC7CB71DBFF683000C40C4 /* UIColorExtension.swift in Sources */,
 				C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */,
 				C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */,
-				C2DC7CA71DBDD0F6000C40C4 /* Delay.swift in Sources */,
 				C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */,
 				C2245E7A1DB4045A00C676BA /* Position.swift in Sources */,
 				C2245E7D1DB44CA200C676BA /* CollectionViewCell.swift in Sources */,
 				C2DC7CA11DBD5D04000C40C4 /* CollectionViewFooter.swift in Sources */,
 				C2DC7C8A1DBBB57C000C40C4 /* ViewExtension.swift in Sources */,
+				005DCEEB1DC9102700E3FCC4 /* Delay.swift in Sources */,
 				C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */,
 				C2BFE93B1DC070F90088089C /* Configuring.swift in Sources */,
 				C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */,
