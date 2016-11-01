@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		005DCEEB1DC9102700E3FCC4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCEEA1DC9102700E3FCC4 /* Delay.swift */; };
+		005DCEED1DC934ED00E3FCC4 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCEEC1DC934ED00E3FCC4 /* Difficulty.swift */; };
 		C2245E5E1DB2A2D500C676BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */; };
 		C2245E631DB2A2D500C676BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2245E611DB2A2D500C676BA /* Main.storyboard */; };
 		C2245E651DB2A2D500C676BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2245E641DB2A2D500C676BA /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		005DCEEA1DC9102700E3FCC4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		005DCEEC1DC934ED00E3FCC4 /* Difficulty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		C2245E5A1DB2A2D500C676BA /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2245E621DB2A2D500C676BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				C2245E751DB3F1DF00C676BA /* Movement.swift */,
 				C2245E791DB4045A00C676BA /* Position.swift */,
 				C2DC7CB01DBFEBCA000C40C4 /* Sound.swift */,
+				005DCEEC1DC934ED00E3FCC4 /* Difficulty.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				C2245E761DB3F1DF00C676BA /* Movement.swift in Sources */,
 				C2DC7C9F1DBD3E23000C40C4 /* Gaming.swift in Sources */,
 				C2DC7CB71DBFF683000C40C4 /* UIColorExtension.swift in Sources */,
+				005DCEED1DC934ED00E3FCC4 /* Difficulty.swift in Sources */,
 				C2DC7CA31DBD7D46000C40C4 /* Choosing.swift in Sources */,
 				C2DC7C7F1DBB1B88000C40C4 /* CollectionViewHeader.swift in Sources */,
 				C2DC7C9C1DBD2AFC000C40C4 /* CollectionViewController.swift in Sources */,
