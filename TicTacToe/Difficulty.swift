@@ -10,7 +10,7 @@ import UIKit
 
 struct Difficulty {
     
-    private var type = Type.hard
+    private var type = Type.easy
     
     enum `Type` {
         

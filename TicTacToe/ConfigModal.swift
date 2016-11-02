@@ -10,6 +10,8 @@ import UIKit
 
 class ConfigModal: UIViewController {
 
+    @IBOutlet weak var difficultyButton: UIButton!
+    
     var delegate: Configuring?
     
     func configModal(_ sender: UIButton) {
@@ -26,6 +28,12 @@ class ConfigModal: UIViewController {
         self.preferredContentSize = CGSize(width: 75, height: 90)
         self.popoverPresentationController?.delegate = delegate
         self.popoverPresentationController?.sourceView = sender
+        
+        Delay.wait(seconds: 0.2) {
+            
+        self.difficultyButton.setTitle(Config.sharedInstance.difficulty.getDifficulty().description, for: .normal)
+        self.difficultyButton.setTitleColor(Config.sharedInstance.difficulty.getDifficulty().color, for: .normal)
+        }
     }
     
     @IBAction func changeSoundState(_ sender: UIButton) {
@@ -45,8 +53,8 @@ class ConfigModal: UIViewController {
         case .easy: Config.sharedInstance.difficulty.setDifficulty(difficulty: .hard)
         }
         
-        sender.tintColor = Config.sharedInstance.difficulty.getDifficulty().color
         sender.setTitle(Config.sharedInstance.difficulty.getDifficulty().description, for: .normal)
+        sender.setTitleColor(Config.sharedInstance.difficulty.getDifficulty().color, for: .normal)
     }
     
 }
