@@ -6,4 +6,6 @@
 //  Copyright © 2016 Lucas M Soares. All rights reserved.
 //
 
-protocol Configuring { }
+import UIKit
+
+protocol Configuring : UIPopoverPresentationControllerDelegate { }

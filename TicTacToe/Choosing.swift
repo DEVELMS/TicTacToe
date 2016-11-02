@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Choosing {
+protocol Choosing : UIPopoverPresentationControllerDelegate {
     
     var game: Game { get set }
     

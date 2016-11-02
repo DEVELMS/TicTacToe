@@ -24,7 +24,7 @@ class ConfigModal: UIViewController {
         self.popoverPresentationController?.backgroundColor = UIColor(hexadecimal: 0xF0F0F0)
         self.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width, y: sender.bounds.height, width: 0, height: 0)
         self.preferredContentSize = CGSize(width: 60, height: 60)
-        self.popoverPresentationController?.delegate = delegate as? UIPopoverPresentationControllerDelegate
+        self.popoverPresentationController?.delegate = delegate
         self.popoverPresentationController?.sourceView = sender
     }
     
