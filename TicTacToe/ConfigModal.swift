@@ -23,7 +23,7 @@ class ConfigModal: UIViewController {
         self.popoverPresentationController?.permittedArrowDirections = .up
         self.popoverPresentationController?.backgroundColor = UIColor(hexadecimal: 0xF0F0F0)
         self.popoverPresentationController?.sourceRect = CGRect(x: sender.bounds.width, y: sender.bounds.height, width: 0, height: 0)
-        self.preferredContentSize = CGSize(width: 60, height: 60)
+        self.preferredContentSize = CGSize(width: 75, height: 90)
         self.popoverPresentationController?.delegate = delegate
         self.popoverPresentationController?.sourceView = sender
     }
@@ -38,4 +38,15 @@ class ConfigModal: UIViewController {
         sender.setImage(Config.sharedInstance.sound.getState().image, for: .normal)
     }
 
+    @IBAction func changeDifficulty(_ sender: UIButton) {
+        
+        switch Config.sharedInstance.difficulty.getDifficulty() {
+        case .hard: Config.sharedInstance.difficulty.setDifficulty(difficulty: .easy)
+        case .easy: Config.sharedInstance.difficulty.setDifficulty(difficulty: .hard)
+        }
+        
+        sender.tintColor = Config.sharedInstance.difficulty.getDifficulty().color
+        sender.setTitle(Config.sharedInstance.difficulty.getDifficulty().description, for: .normal)
+    }
+    
 }

@@ -12,6 +12,8 @@ import AVFoundation
 struct Sound {
     
     private var state: State = .on
+    private var playerToMovements = AVPlayer()
+    private var playerToSoundtrack = AVPlayer()
     
     enum SoundType {
         
@@ -77,15 +79,15 @@ struct Sound {
     mutating func setState(state: State)  {
         
         self.state = state
-        Config.sharedInstance.playerToSoundtrack.isMuted = !state.isOn
-        Config.sharedInstance.playerToMovements.isMuted = !state.isOn
+        playerToSoundtrack.isMuted = !state.isOn
+        playerToMovements.isMuted = !state.isOn
     }
     
     mutating func startSoundtrack() {
         
         playSoundtrackSound(url: SoundType.soundtrack.url)
         
-        NotificationCenter.default.addObserver(self, selector: Selector({"soundTrackFinished"}()), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: Config.sharedInstance.playerToSoundtrack.currentItem)
+        NotificationCenter.default.addObserver(self, selector: Selector({"soundTrackFinished"}()), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerToSoundtrack.currentItem)
     }
     
     mutating func playMovementSound(movementType: Movement.MovementType) {
@@ -98,21 +100,21 @@ struct Sound {
         playMovementSound(url: SoundType(gameState: gameState).url)
     }
     
-    private func playMovementSound(url: URL) {
+    private mutating func playMovementSound(url: URL) {
         
-        Config.sharedInstance.playerToMovements = AVPlayer(url: url)
-        Config.sharedInstance.playerToMovements.play()
+        playerToMovements = AVPlayer(url: url)
+        playerToMovements.play()
     }
     
-    private func playSoundtrackSound(url: URL) {
+    private mutating func playSoundtrackSound(url: URL) {
         
-        Config.sharedInstance.playerToSoundtrack = AVPlayer(url: url)
-        Config.sharedInstance.playerToSoundtrack.play()
+        playerToSoundtrack = AVPlayer(url: url)
+        playerToSoundtrack.play()
     }
     
     func soundTrackFinished(notification: NSNotification) {
         print("soundTrackFinished")
-        Config.sharedInstance.playerToSoundtrack.seek(to: kCMTimeZero)
-        Config.sharedInstance.playerToSoundtrack.play()
+        playerToSoundtrack.seek(to: kCMTimeZero)
+        playerToSoundtrack.play()
     }
 }

@@ -54,4 +54,25 @@ struct Player {
         assert(false, "randomMovement(nenhuma posição disponível)")
     }
     
+    mutating func accurateMovement(field: inout Field) -> Movement {
+        
+        var randomPositions = [Int]()
+        
+        for index in (0..<field.maxPositions)  {
+            randomPositions.append(index)
+        }
+        
+        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
+        
+        for position in randomPositions {
+            
+            let movement = Movement(player: self, position: position)
+            
+            if field.checkFieldPositionsToCpu(movement: movement) {
+                return movement
+            }
+        }
+        
+        assert(false, "randomMovement(nenhuma posição disponível)")
+    }
 }

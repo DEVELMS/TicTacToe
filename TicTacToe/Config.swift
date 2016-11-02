@@ -18,7 +18,6 @@ final class Config {
     static let sharedInstance: Config = Config()
     
     //MARK: Local Variable
-    var playerToMovements = AVPlayer()
-    var playerToSoundtrack = AVPlayer()
     var sound = Sound()
+    var difficulty = Difficulty()
 }
