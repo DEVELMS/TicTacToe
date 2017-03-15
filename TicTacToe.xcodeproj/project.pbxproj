@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		005DCEEB1DC9102700E3FCC4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCEEA1DC9102700E3FCC4 /* Delay.swift */; };
 		005DCEED1DC934ED00E3FCC4 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DCEEC1DC934ED00E3FCC4 /* Difficulty.swift */; };
+		C22109DF1E78D29C0018B835 /* Moving.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22109DE1E78D29C0018B835 /* Moving.swift */; };
 		C2245E5E1DB2A2D500C676BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */; };
 		C2245E631DB2A2D500C676BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2245E611DB2A2D500C676BA /* Main.storyboard */; };
 		C2245E651DB2A2D500C676BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2245E641DB2A2D500C676BA /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		005DCEEA1DC9102700E3FCC4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		005DCEEC1DC934ED00E3FCC4 /* Difficulty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		C22109DE1E78D29C0018B835 /* Moving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moving.swift; sourceTree = "<group>"; };
 		C2245E5A1DB2A2D500C676BA /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2245E621DB2A2D500C676BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				C2DC7CA21DBD7D46000C40C4 /* Choosing.swift */,
 				C2DC7C9E1DBD3E23000C40C4 /* Gaming.swift */,
 				C2BFE93A1DC070F90088089C /* Configuring.swift */,
+				C22109DE1E78D29C0018B835 /* Moving.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				005DCEEB1DC9102700E3FCC4 /* Delay.swift in Sources */,
 				C2DC7CB41DBFEF6E000C40C4 /* ConfigModal.swift in Sources */,
 				C2BFE93B1DC070F90088089C /* Configuring.swift in Sources */,
+				C22109DF1E78D29C0018B835 /* Moving.swift in Sources */,
 				C2DC7CAF1DBFEB86000C40C4 /* Config.swift in Sources */,
 				C2245E861DB5B2E100C676BA /* Field.swift in Sources */,
 				C2DC7CB11DBFEBCA000C40C4 /* Sound.swift in Sources */,

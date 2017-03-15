@@ -123,18 +123,15 @@ struct Game {
         switch gameType {
         case .cpu:
             
-            if var cpu = players.last, !cpu.human, cpu.playerType == actualPlayer!.playerType {
-                delegate.setUserInteraction(booleano: false)
-                var weak = self
-                Delay.wait(seconds: 0.5) {
-                    delegate.cpuPlayed(movement: cpu.randomMovement(field: &weak.field))
-                    delegate.setUserInteraction(booleano: true)
-                }
-                self = weak
+            guard let actualPlayer = actualPlayer else { return false }
+            
+            if let cpu = players.last, !cpu.human, cpu.playerType == actualPlayer.playerType {
+            
+                guard let movement = cpu.doMovement(at: field) else { return false }
+                delegate.cpuPlayed(movement: movement)
             }
             
-        case .pvp(_):
-            delegate.activePlayer(activePlayer: actualPlayer!)
+        case .pvp(_): delegate.activePlayer(activePlayer: actualPlayer!)
         }
         
         return true
@@ -150,11 +147,8 @@ struct Game {
             
             for (index, position) in positions.enumerated() {
                 
-                if(!field.checkPositions(position: Position(position: position, movementType: movementType))) {
-                    break
-                }
+                if(!field.checkPositions(position: Position(position: position, movementType: movementType))) { break }
                 else if (index == (positions.count - 1)) {
-                
                     victory = true
                 }
             }
@@ -192,7 +186,7 @@ struct Game {
         case GameState.finished(finishedState: .win(let winner)):
             
             for (index, player) in players.enumerated() where player.playerType == winner.playerType {
-                players[index].addWin()
+                players[index].winned()
             }
             delegate.finishedGame(state: .win(player: winner))
             
@@ -203,9 +197,9 @@ struct Game {
         }
     }
     
-    func getLastMovementType() -> Movement.MovementType {
-        
-        return lastMovement!.movementType
+    func getLastMovementType() -> Movement.MovementType? {
+        guard let movementType = lastMovement?.movementType else { return nil }
+        return movementType
     }
     
     func getPlayers() -> [Player] {

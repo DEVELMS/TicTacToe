@@ -110,11 +110,6 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         } else { print("cpu cannot play") }
     }
     
-    func setUserInteraction(booleano: Bool) {
-        
-        self.collectionView!.isUserInteractionEnabled = booleano
-    }
-    
     func showConfigModal(sender: UIButton) {
         
         configModal.configModal(sender);
@@ -168,9 +163,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if game.play(position: indexPath.row) {
+            
+            guard let lastMovementType = game.getLastMovementType() else { return }
+            
             let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-            cell.setItem(type: game.getLastMovementType())
-            Config.sharedInstance.sound.playMovementSound(movementType: game.getLastMovementType())
+            cell.setItem(type: lastMovementType)
+            Config.sharedInstance.sound.playMovementSound(movementType: lastMovementType)
         }
     }
     

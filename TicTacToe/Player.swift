@@ -8,7 +8,7 @@
 
 import GameplayKit
 
-struct Player {
+struct Player: Moving {
 
     let name: String
     let playerType: PlayerType
@@ -27,34 +27,24 @@ struct Player {
         self.human = human
     }
     
-    mutating func addWin() {
+    // MARK: Private funcs
     
+    mutating func winned() {
         self.wins += 1
     }
     
-    mutating func randomMovement(field: inout Field) -> Movement {
-        
-        var randomPositions = [Int]()
-        
-        for index in (0..<field.maxPositions)  {
-            randomPositions.append(index)
+    // MARK: Moving Protocol
+    
+    func doMovement(at: Field) -> Movement? {
+    
+        if !self.human { return randomMovement(field: at) }
+        else {
+            print("just machines can do that")
+            return nil
         }
-        
-        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
-        
-        for position in randomPositions {
-            
-            let movement = Movement(player: self, position: position)
-            
-            if field.checkFieldPositionsToCpu(movement: movement) {
-                return movement
-            }
-        }
-        
-        assert(false, "randomMovement(nenhuma posição disponível)")
     }
     
-    mutating func accurateMovement(field: inout Field) -> Movement {
+    func randomMovement(field: Field) -> Movement? {
         
         var randomPositions = [Int]()
         
@@ -66,13 +56,33 @@ struct Player {
         
         for position in randomPositions {
             
-            let movement = Movement(player: self, position: position)
-            
-            if field.checkFieldPositionsToCpu(movement: movement) {
-                return movement
+            if field.check(position: position) {
+                return Movement(player: self, position: position)
             }
         }
         
-        assert(false, "randomMovement(nenhuma posição disponível)")
+        return nil
     }
+    
+//    mutating func accurateMovement(field: inout Field) -> Movement {
+//        
+//        var randomPositions = [Int]()
+//        
+//        for index in (0..<field.maxPositions)  {
+//            randomPositions.append(index)
+//        }
+//        
+//        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
+//        
+//        for position in randomPositions {
+//            
+//            let movement = Movement(player: self.player, position: position)
+//            
+//            if field.checkFieldPositionsToCpu(movement: movement) {
+//                return movement
+//            }
+//        }
+//        
+//        assert(false, "randomMovement(without available position)")
+//    }
 }

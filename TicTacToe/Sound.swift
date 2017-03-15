@@ -72,7 +72,6 @@ struct Sound {
     }
     
     func getState() -> State {
-        
         return state
     }
     
@@ -91,12 +90,10 @@ struct Sound {
     }
     
     mutating func playMovementSound(movementType: Movement.MovementType) {
-        
         playMovementSound(url: SoundType(movementType: movementType).url)
     }
     
     mutating func playGameStateSound(gameState: Game.GameState.FinishedState) {
-        
         playMovementSound(url: SoundType(gameState: gameState).url)
     }
     
