@@ -143,7 +143,7 @@ struct Game {
         
         var victory = Bool()
         
-        for positions in Position.positionstoWin {
+        for positions in Field.positionstoWin {
             
             for (index, position) in positions.enumerated() {
                 
@@ -159,7 +159,7 @@ struct Game {
             setGameState(gameState: GameState.finished(finishedState: .win(player: player)))
             return true
         }
-        else if field.getPositions().count == field.maxPositions {
+        else if field.getPositions().count == Field.maxPositions {
             setGameState(gameState: GameState.finished(finishedState: .draw))
             return true
         }

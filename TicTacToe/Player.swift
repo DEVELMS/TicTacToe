@@ -48,7 +48,7 @@ struct Player: Moving {
         
         var randomPositions = [Int]()
         
-        for index in (0..<field.maxPositions)  {
+        for index in (0 ..< Field.maxPositions)  {
             randomPositions.append(index)
         }
         
