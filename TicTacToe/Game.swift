@@ -126,7 +126,7 @@ struct Game {
             guard let actualPlayer = actualPlayer else { return false }
             
             if let cpu = players.last, !cpu.human, cpu.playerType == actualPlayer.playerType {
-            
+                
                 guard let movement = cpu.doMovement(at: field) else { return false }
                 delegate.cpuPlayed(movement: movement)
             }

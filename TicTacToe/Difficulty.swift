@@ -10,7 +10,7 @@ import UIKit
 
 struct Difficulty {
     
-    private var type = Type.easy
+    private var type: Type
     
     enum `Type` {
         
@@ -34,6 +34,10 @@ struct Difficulty {
         }
     }
 
+    init(type: Type) {
+        self.type = type
+    }
+    
     func getDifficulty() -> Type {
     
         return self.type

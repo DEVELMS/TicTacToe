@@ -37,14 +37,97 @@ struct Player: Moving {
     
     func doMovement(at: Field) -> Movement? {
     
-        if !self.human { return randomMovement(field: at) }
+        if !self.human {
+            
+            if Config.sharedInstance.difficulty.getDifficulty() == .hard {
+                return accurateMovement(field: at)
+            }
+            
+            return softMovement(field: at)
+        }
         else {
             print("just machines can do that")
             return nil
         }
     }
     
+    func softMovement(field: Field) -> Movement? {
+        
+        var randomPositions = Field.positionstoWin
+        
+        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [[Int]]
+        
+        // I will try do a move
+        for positions in Field.positionstoWin {
+            
+            var isOk = true
+            var position_ = 99
+            
+            for position in positions {
+                
+                let wasPlayedByMe = field.check(position: position, wasPlayedBy: self)
+                let isEmpty = field.check(position: position)
+                
+                if !isEmpty && !wasPlayedByMe {
+                    isOk = false
+                    break
+                }
+                else if isEmpty { position_ = position }
+            }
+            
+            if isOk, position_ != 99 { return Movement(player: self, position: position_) }
+        }
+        
+        return randomMovement(field: field)
+    }
+    
+    func accurateMovement(field: Field) -> Movement? {
+        
+        // Can i win?
+        for positions in Field.positionstoWin {
+            
+            var iWillWin = Bool()
+            var position_ = 99
+            var alerts = 0
+            
+            for position in positions {
+                
+                let wasPlayedByMe = field.check(position: position, wasPlayedBy: self)
+                let isEmpty = field.check(position: position)
+                
+                if isEmpty { position_ = position }
+                else if wasPlayedByMe { alerts += 1 }
+                if alerts >= 2 { iWillWin = true }
+            }
+            
+            if iWillWin, position_ != 99 { return Movement(player: self, position: position_) }
+        }
+        // Can Human win?
+        for positions in Field.positionstoWin {
+            
+            var humanWillWin = Bool()
+            var position_ = 99
+            var alerts = 0
+            
+            for position in positions {
+                
+                let wasPlayedByMe = field.check(position: position, wasPlayedBy: self)
+                let isEmpty = field.check(position: position)
+                
+                if isEmpty { position_ = position }
+                else if !wasPlayedByMe { alerts += 1 }
+                if alerts >= 2 { humanWillWin = true }
+            }
+            
+            if humanWillWin, position_ != 99 { return Movement(player: self, position: position_) }
+        }
+        
+        return softMovement(field: field)
+    }
+    
     func randomMovement(field: Field) -> Movement? {
+        
+        var movement: Movement?
         
         var randomPositions = [Int]()
         
@@ -57,32 +140,10 @@ struct Player: Moving {
         for position in randomPositions {
             
             if field.check(position: position) {
-                return Movement(player: self, position: position)
+                movement = Movement(player: self, position: position)
             }
         }
         
-        return nil
+        return movement
     }
-    
-//    mutating func accurateMovement(field: inout Field) -> Movement {
-//        
-//        var randomPositions = [Int]()
-//        
-//        for index in (0..<field.maxPositions)  {
-//            randomPositions.append(index)
-//        }
-//        
-//        randomPositions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: randomPositions) as! [Int]
-//        
-//        for position in randomPositions {
-//            
-//            let movement = Movement(player: self.player, position: position)
-//            
-//            if field.checkFieldPositionsToCpu(movement: movement) {
-//                return movement
-//            }
-//        }
-//        
-//        assert(false, "randomMovement(without available position)")
-//    }
 }

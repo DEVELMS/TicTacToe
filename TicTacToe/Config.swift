@@ -19,5 +19,5 @@ final class Config {
     
     //MARK: Local Variable
     var sound = Sound()
-    var difficulty = Difficulty()
+    var difficulty = Difficulty(type: .hard)
 }

@@ -50,6 +50,14 @@ struct Field {
         return true
     }
     
+    func check(position: Int, wasPlayedBy: Player) -> Bool {
+        
+        return !positions.filter {
+            $0.position == position &&
+            $0.check(playerType: wasPlayedBy.playerType)
+        }.isEmpty
+    }
+    
     private func checkPositionEmpty(position: Int) -> Bool {
         
         return positions.filter { $0.position == position }.isEmpty

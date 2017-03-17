@@ -14,4 +14,16 @@ struct Position: Equatable {
     static func ==(lhs: Position, rhs: Position) -> Bool {
         return lhs == rhs
     }
+    
+    func check(playerType: Player.PlayerType) -> Bool {
+        
+        switch playerType {
+        case .playerOne:
+            if movementType == .x { return true }
+            else { return false }
+        case .playerTwo:
+            if movementType == .o { return true }
+            else { return false }
+        }
+    }
 }
