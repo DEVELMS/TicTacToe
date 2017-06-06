@@ -121,8 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				C2DC7CA81DBFEB0D000C40C4 /* Resources */,
-				C2245E691DB2A2D500C676BA /* Info.plist */,
-				C2245E641DB2A2D500C676BA /* Assets.xcassets */,
 				C2245E661DB2A2D500C676BA /* LaunchScreen.storyboard */,
 				C2245E611DB2A2D500C676BA /* Main.storyboard */,
 				C2245E5D1DB2A2D500C676BA /* AppDelegate.swift */,
@@ -174,6 +172,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		C262A5CA1EE4B8D4003E0A14 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFE9341DC02DEC0088089C /* imperial-march.wav */,
+				C2BFE9351DC02DEC0088089C /* theme-song.mp3 */,
+				C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */,
+				C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */,
+				C2BFE9381DC0563D0088089C /* win.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		C2DC7C881DBBB560000C40C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,11 +208,9 @@
 		C2DC7CA81DBFEB0D000C40C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2BFE9341DC02DEC0088089C /* imperial-march.wav */,
-				C2BFE9351DC02DEC0088089C /* theme-song.mp3 */,
-				C2DC7CA91DBFEB16000C40C4 /* lightsaber.wav */,
-				C2DC7CAA1DBFEB16000C40C4 /* blaster.wav */,
-				C2BFE9381DC0563D0088089C /* win.wav */,
+				C2245E641DB2A2D500C676BA /* Assets.xcassets */,
+				C2245E691DB2A2D500C676BA /* Info.plist */,
+				C262A5CA1EE4B8D4003E0A14 /* sounds */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

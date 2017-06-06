@@ -11,26 +11,16 @@ import UIKit
 class CollectionViewHeader: UICollectionReusableView {
         
     @IBOutlet private weak var activePlayer: UILabel!
-    @IBOutlet weak var configButton: UIButton!
+    @IBOutlet private weak var configButton: UIButton!
     
     var delegate: Gaming?
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//        Delay.wait(seconds: 0.5) { self.setLayoutAttributes() }
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     private func setLayoutAttributes() {
         
         configButton.tintColor = UIColor.darkGray
     }
     
-    func setTitle(name: String) {
+    func setActivePlayer(name: String) {
         
         self.setLayoutAttributes()
         

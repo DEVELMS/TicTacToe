@@ -92,7 +92,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     func activePlayer(activePlayer: Player) {
         
-        header.setTitle(name: activePlayer.name)
+        header.setActivePlayer(name: activePlayer.name)
     }
     
     func turnOff() {
@@ -127,8 +127,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             header.delegate = self
             
             if let player = game.getPlayers().first {
-                header.setTitle(name: player.name)
-            } else { header.setTitle(name: "Ops!") }
+                header.setActivePlayer(name: player.name)
+            } else { header.setActivePlayer(name: "Ops!") }
             
             return header
             

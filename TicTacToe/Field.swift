@@ -19,14 +19,14 @@ struct Field {
                                  [0,4,8],
                                  [2,4,6]]
     
+    func getPositions() -> [Position] {
+        
+        return positions
+    }
+    
     mutating func cleanPositions() {
         
         self.positions = [Position]()
-    }
-    
-    func getPositions() -> [Position] {
-    
-        return positions
     }
     
     mutating func checkFieldPositions(movement: Movement) -> Bool {
